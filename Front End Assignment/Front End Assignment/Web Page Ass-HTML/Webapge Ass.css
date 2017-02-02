@@ -1,0 +1,112 @@
+/* Styles go here */
+
+    
+
+
+
+footer {
+    padding: 1em;
+    color: white;
+    background-color: grey;
+    clear: left;
+    text-align: left;
+}
+
+body {
+    padding: 1em;
+    color: black;
+    background-color: ghostwhite;
+    clear: left;
+    text-align: left;
+	height:100%
+ 
+}
+
+.boxstyle{
+    padding: 4px;
+
+    color: black;
+    background-color: White;
+    
+    text-align: left;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 5px;
+
+}
+.bodytable tr{
+  border-spacing: 5px;
+    border: none;
+}
+.bodytable td{
+  border-spacing: 5px;
+    border: none;
+}
+.bodytable table{
+  border-spacing: 5px;
+    border: none;
+}
+.tablecontent table{
+  border-spacing: 5px;
+    border: none;
+}
+.tablecontent tr{
+   border-spacing: 5px;
+    border: none;
+}
+.tablecontent td{
+    border-spacing: 5px;
+    border: none;
+}
+.header{
+    background-color: grey;
+    border: none;
+}
+a {
+  font-family: Verdana, Geneva, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+    color: white;
+}
+.blackheading {
+  font-family: Verdana, Geneva, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+    color: black;
+}
+.redheading {
+  font-family: Verdana, Geneva, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+    color: red;
+}
+table {
+    border: none;
+      border-spacing: 5px;
+}
+td {
+      border-spacing: 5px;
+}
+.right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    border: 3px solid black;;
+    padding: 10px;
+}
+
+
+
+@media only screen and (orientation: landscape) {
+    body
+    {
+        background-color: lightgrey;
+    }
+
+

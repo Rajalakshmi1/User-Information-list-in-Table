@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html>
+
+  <head>
+   
+ <link rel="stylesheet" href="style.css">
+  
+  <script src="script.js"></script>
+ 
+ </head>
+
+  <body>
+    
+<div id = "data">
+   
+ <form id ="person">
+   
+   <table class="formbody" >
+  
+      <tr>
+       
+   <td colspan=2><h1>User Details Information</h1></td>
+   
+     </tr>
+        <tr>
+       
+   <td>User Name:</td>
+       
+   <td><input id = "UserName" name = "UserName" type = "text"></td>
+        </tr>
+        
+    
+    <tr>
+        
+  <td colspan=2>
+     
+       <div id="idErrorUserName" style="color:red;display:none" ></div>
+    
+      </td>
+    
+    </tr>
+        
+ 
+       <tr>
+         
+ <td>Password:</td>
+     
+     <td>
+            <input id = "Password" name = "Password" type = "password"> </br>
+    
+      </td>
+     
+   </tr>
+        
+    
+    <tr>
+        
+  <td colspan=2>
+        
+    <div id="idpassword" style="color:red;display:none" ></div>
+          </td>
+        
+</tr>
+        
+
+        <tr>
+      
+    <td>Gender:</td>
+       
+   <td>
+            <input type="radio" name="gender" id="gender_Male" value="male"> Male<br>
+    
+        <input type="radio" name="gender" id="gender_Female" value="female"> Female<br>
+    
+        <input type="radio" name="gender" id="gender_Other" value="other"> Other
+      
+    </td>
+       
+ </tr>
+        
+        
+   
+     <tr>
+       
+   <td colspan=2>
+        
+    <div id="idGender" style="color:red;display:none" ></div>
+          </td>
+    
+    </tr>
+    
+    <tr>
+         
+ <td>Location:</td>
+      
+    <td>
+           
+  <input id = "Location" name = "Location" type = "text">
+          </td>
+      
+  </tr>
+        
+  
+      <tr>
+   
+       <td colspan=2>
+    
+        <div id="idlocation" style="color:red;display:none" ></div>
+          </td>
+      
+  </tr>
+        
+   
+     <tr>
+       
+   <td>Email:</td>
+     
+     <td>
+         
+   <input id ="Email" name="emailid" type="text"/>
+    
+      </td>
+      
+  </tr>
+        
+ 
+       <tr>
+      
+    <td colspan=2>
+    
+        <div id="idemail" style="color:red;display:none" ></div>
+          </td>
+     
+   </tr>
+     
+   <tr>
+     
+     <td>
+    
+        <input id = "button" type = "button" value = " Submit " onclick = "SubmitForm()">
+    
+      </td>
+       
+   <td>
+         
+           <input id = "button" type = "button" value = " Reset " onclick = "ResetForm()">
+     
+     </td>
+  
+      </tr>
+     
+   
+      </table>
+   
+ </form>
+  
+  </div>
+  
+  <br>
+ 
+   <table style="width:100%">
+ 
+     
+        <table id = "list" cellspacing = "0px" cellpadding = "20px" text-align = "center">
+            <thead>
+                <tr>
+                    <td>UserName</td>
+                    <td>Password</td>
+                    <td>Gender</td>
+                    <td>Location</td>
+                    <td>Email</td>
+                </tr>
+            </thead>
+  </body>
+  
+
+</html>
+
+// Code goes here
+
+
+function SubmitForm() 
+
+{
+        document.getElementById("idErrorUserName").style.display = "none";
+        document.getElementById("idpassword").style.display = "none";
+        document.getElementById("idGender").style.display = "none";
+        document.getElementById("idlocation").style.display = "none";
+        document.getElementById("idemail").style.display = "none";
+
+   
+ var errorFlag = false;
+
+   
+ var a = document.getElementById("UserName").value;
+  
+  if (a == "")
+   
+ {
+        //alert("UserName must be filled out");
+        document.getElementById("idErrorUserName").innerHTML = "UserName must be filled out";
+        document.getElementById("idErrorUserName").style.display = "block";
+        errorFlag = true;
+    }
+    
+    var b = document.getElementById("Password").value;
+    if (b == "")
+    {
+        //alert("Password must be filled out");
+        document.getElementById("idpassword").innerHTML = "Password must be filled out";
+        document.getElementById("idpassword").style.display = "block";
+        errorFlag = true;
+    }
+    if(!document.getElementById("gender_Male").checked &&
+    !document.getElementById("gender_Female").checked &&
+    !document.getElementById("gender_Other").checked)
+    {
+      //alert("select a gender");
+      document.getElementById("idGender").innerHTML = "Select a Gender";
+      document.getElementById("idGender").style.display = "block";
+
+      
+        errorFlag = true;
+    }
+    var c = document.getElementById("Location").value;
+    if (c == "")
+    {
+        //alert("Location must be filled out");
+        document.getElementById("idlocation").innerHTML = "Location must be filled out";
+        document.getElementById("idlocation").style.display = "block";
+        errorFlag = true;
+    }
+    
+    var d = document.getElementById("Email").value;
+    if (d == "")
+    {
+        //alert("Email must be filled out");
+         document.getElementById("idemail").innerHTML = "Email must be filled out";
+        document.getElementById("idemail").style.display = "block";
+        errorFlag = true;
+    }
+    
+    if(errorFlag)
+    {
+      return false;
+    }
+var table = document.getElementById('list');
+var row = document.createElement('tr');
+var td1 = document.createElement('td');
+var td2 = document.createElement('td');
+var td3 = document.createElement('td');
+var td4 = document.createElement('td');
+var td5 = document.createElement('td');
+    td1.innerHTML = document.getElementById('UserName').value;
+    td2.innerHTML = document.getElementById('Password').value;
+    if(document.getElementById("gender_Male").checked)
+    {
+          td3.innerHTML = document.getElementById('gender_Male').value;
+    }
+    else if (document.getElementById("gender_Female").checked)
+    {
+        td3.innerHTML = document.getElementById('gender_Female').value;
+    }
+    else
+    {
+          td3.innerHTML = document.getElementByName('gender_Other').value;
+    }
+    td4.innerHTML = document.getElementById('Location').value;
+    td5.innerHTML = document.getElementById('Email').value;
+    
+    row.appendChild(td1);
+    row.appendChild(td2);
+    row.appendChild(td3);
+    row.appendChild(td4);
+    row.appendChild(td5);
+   
+    table.children[0].appendChild(row);
+      
+   
+
+}
+
+function ResetForm()
+{
+  document.getElementById("person").reset();
+  location.reload(true);
+}
+
+/* Styles go here */
+
+
+input[type=text],input[type=Password] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: lightpink;
+    border: 3px solid #555;
+    padding-left: 40px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
+table {
+    border-spacing: 5px;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}
+.formbody tr{
+      border: none;
+}
+.formbody td{
+      border: none;
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+   <input type="text" id="idLeftBox" value="rajalakshmi" />
+   <input type="text" id="idRightBox" /><br/>
+   
+   <input type ="button" value=">>" onclick = "javascript:lefttoright();"/>
+   <input type ="button" value="Pause" onclick = "javascript:pause();"/>
+   <input type ="button" value="<<" onclick = "javascript:righttoleft();"/>
+   
+   
+  </body>
+
+</html>
+
+----------------------------------
+
+// Code goes here
+
+
+function lefttoright()
+
+{
+ // alert(document.getElementById("idLeftBox").value);
+ 
+ //  alert(document.getElementById("idRightBox").value);
+ 
+ 
+  var leftboxstring = document.getElementById("idLeftBox").value;
+ 
+ var rightboxstring = document.getElementById("idRightBox").value;
+
+ 
+ var leftCharArray = leftboxstring.split('');
+ 
+ var rightCharArray = rightboxstring.split('');
+  
+ 
+   var rightboxstring = document.getElementById("idRightBox").value;
+   
+  var length = leftCharArray.length;
+     
+//var a*=document.getElementById("idLeftBox").value;
+ 
+ for (i = 0; i < length; i++) {//alert(i);
+   
+ var leftboxstring = document.getElementById("idLeftBox").value;
+  
+  window.setInterval(movecharlefttoright(i,leftboxstring,rightboxstring), 1000);
+ 
+ }
+}
+
+
+
+
+function movecharlefttoright(index,leftboxstring,rightboxstring)
+
+{
+    
+var leftCharArray = leftboxstring.split('');
+   
+ var rightCharArray = rightboxstring.split('');
+  
+
+  rightboxstring = rightboxstring +leftCharArray[index];//alert(leftCharArray[i]);
+    
+setTimeout(function(){
+     
+     document.getElementById("idRightBox").value += rightboxstring;
+     
+     leftCharArray.shift();
+       
+   document.getElementById("idLeftBox").value = leftCharArray.join('');
+    }, 100*index);
+  
+  
+   
+}
+
+
+
+function movecharrighttoleft(index)
+
+{
+    
+var leftboxstring = document.getElementById("idLeftBox").value;
+ 
+   var rightboxstring = document.getElementById("idRightBox").value;
+  
+  var leftCharArray = leftboxstring.split('');
+ 
+   var rightCharArray = rightboxstring.split('');
+  
+
+  leftboxstring = leftboxstring +rightCharArray[index];//alert(leftCharArray[i]);
+  
+
+
+  setTimeout(function()
+{
+          document.getElementById("idLeftBox").value += leftboxstring;
+    }, 1000*index);
+}
+
+
+
+function pause()
+
+{
+  alert('2');
+}
+
+
+function righttoleft()
+
+{
+  var leftboxstring = document.getElementById("idLeftBox").value;
+ 
+ var rightboxstring = document.getElementById("idRightBox").value;
+
+ 
+ var leftCharArray = leftboxstring.split('');
+ 
+ var rightCharArray = rightboxstring.split('');
+  
+  
+for (i = 0; i < rightCharArray.length; i++)
+ {//alert(i);
+    window.setInterval(movecharrighttoleft(i), 1000);
+
+leftboxstring.shift();  
+}
+}
